@@ -1,18 +1,27 @@
 {
   "name": "rharrison-holland",
   "author": "rharrison",
-  "description": "UNKNOWN",
+  "description": "Puppet module to manage Holland Backup Manager",
   "license": "Apache License, Version 2.0",
-  "project_page": "UNKNOWN",
-  "source": "UNKNOWN",
-  "summary": "UNKNOWN",
+  "project_page": "https://github.com/rharrison10/puppet-holland",
+  "source": "https://github.com/rharrison10/puppet-holland",
+  "summary": "Puppet module to manage Holland Backup Manager",
   "version": "0.0.1",
   "checksums": {
-    "Modulefile": "989c3888ffadcc13d64673edd13d00d0",
-    "README.md": "d513bd35498390a6ce427b87a931c291",
-    "manifests/init.pp": "f662e6361504c2c8d9f6a8718fd1a2a4",
+    "Modulefile": "b2c0f954250006761b197fbb58dc06db",
+    "README.md": "1be99f5c56c8a724bac3f432476781cc",
+    "files/augeas/holland.aug": "2aa51ce1ceaad4d3a8dcd8a7d39179b5",
+    "files/augeas/test_holland.aug": "7b036d61a14c84b1a0d1effe53f3dca3",
+    "manifests/init.pp": "90a6f7caad60fbb39ee993053857c816",
     "spec/spec_helper.rb": "74e30bf432595b74af64dee36bb53213",
+    "templates/holland.conf": "0782309eab29c82887dd33e6cc4bfc7e",
+    "templates/providers/mysqldump.conf": "eeba0c9812b6b5043aa98ccecfc84b00",
     "tests/init.pp": "a6a67ea9deca227a9e476d217d245254"
   },
-  "dependencies": []
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": "\u003e\u003d2.6.0"
+    }
+  ]
 }

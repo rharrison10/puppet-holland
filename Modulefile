@@ -1,11 +1,10 @@
-name    'rharrison-holland'
+name 'rharrison-holland'
 version '0.0.1'
-source 'UNKNOWN'
+
 author 'rharrison'
 license 'Apache License, Version 2.0'
-summary 'UNKNOWN'
-description 'UNKNOWN'
-project_page 'UNKNOWN'
-
-## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+project_page 'https://github.com/rharrison10/puppet-holland'
+source 'https://github.com/rharrison10/puppet-holland'
+summary 'Puppet module to manage Holland Backup Manager'
+description 'Puppet module to manage Holland Backup Manager'
+dependency 'puppetlabs/stdlib', '>=2.6.0'
