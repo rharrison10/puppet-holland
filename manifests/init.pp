@@ -32,12 +32,30 @@
 # limitations under the License.
 #
 class holland {
-
   # The base Holland package
   package { 'holland':
     ensure => present,
   }
 
+  # Make sure the configuration directories have the correct permissions. Slightly more secure than the package defaults
+  file { ['/etc/holland', '/etc/holland/backupsets', '/etc/holland/providers']:
+    ensure  => directory,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0750',
+    require => Package['holland'],
+  }
+
+  # Make sure +holland.conf+ has the correct permissions
+  file { '/etc/holland/holland.conf':
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0640',
+    require => Package['holland'],
+  }
+
+  # Put the Augeas lens in place.
   file { '/usr/share/augeas/lenses/dist/holland.aug':
     ensure => file,
     owner  => 'root',
