@@ -13,12 +13,11 @@
     "files/augeas/holland.aug": "2aa51ce1ceaad4d3a8dcd8a7d39179b5",
     "files/augeas/test_holland.aug": "7b036d61a14c84b1a0d1effe53f3dca3",
     "manifests/config.pp": "a80a22bf207c4efbd2b150f16662539e",
-    "manifests/init.pp": "db30f6254738f39baf0cd38b911f7dea",
-    "manifests/mysqldump.pp": "bff466333148e1aa08db221379a4ea42",
-    "manifests/mysqldump.pp.snapshot": "345466a62e8475b6360628db3202d320",
+    "manifests/init.pp": "534e906421e49fda2c2fdf7b9c2639de",
+    "manifests/mysqldump.pp": "ab463f8b6be5209aeac2162040e42d2f",
+    "manifests/mysqldump/config.pp": "3ff2882a4fb620c4275c0c9cce2bf50c",
     "spec/spec_helper.rb": "74e30bf432595b74af64dee36bb53213",
-    "templates/holland.conf": "0782309eab29c82887dd33e6cc4bfc7e",
-    "templates/providers/mysqldump.conf.erb": "1ad6200f846711ddf6c7c52a756cb274",
+    "templates/providers/mysqldump.conf.erb": "556a72efe5a5a5641cbd5482121f3c47",
     "tests/init.pp": "a6a67ea9deca227a9e476d217d245254"
   },
   "dependencies": [

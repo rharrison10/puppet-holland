@@ -7,7 +7,8 @@
 #
 # === Parameters
 #
-# None
+# [*ensure*]
+#   Wheither the resources are <tt>present</tt> or <tt>absent</tt>
 #
 # === Examples
 #
@@ -31,15 +32,26 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-class holland {
+class holland (
+  $ensure = 'present'
+) {
+  if !($ensure in ['present', 'absent']) {
+    fail("ensure = ${ensure} must be either 'present' or 'absent'")
+  }
+
   # The base Holland package
   package { 'holland':
-    ensure => present,
+    ensure => $ensure,
+  }
+
+  $ensure_dir = $ensure ? {
+    'present' => 'directory',
+    default   => $ensure,
   }
 
   # Make sure the configuration directories have the correct permissions. Slightly more secure than the package defaults
   file { ['/etc/holland', '/etc/holland/backupsets', '/etc/holland/providers']:
-    ensure  => directory,
+    ensure  => $ensure_dir,
     owner   => 'root',
     group   => 'root',
     mode    => '0750',
@@ -48,7 +60,7 @@ class holland {
 
   # Make sure +holland.conf+ has the correct permissions
   file { '/etc/holland/holland.conf':
-    ensure  => file,
+    ensure  => $ensure,
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
@@ -57,7 +69,7 @@ class holland {
 
   # Put the Augeas lens in place.
   file { '/usr/share/augeas/lenses/dist/holland.aug':
-    ensure => file,
+    ensure => $ensure,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
@@ -66,7 +78,7 @@ class holland {
 
   # Its also good practice to include the test file with the lens so we'll manage it as well.
   file { '/usr/share/augeas/lenses/dist/tests/test_holland.aug':
-    ensure => file,
+    ensure => $ensure,
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
