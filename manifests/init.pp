@@ -32,7 +32,6 @@
 # limitations under the License.
 #
 class holland {
-  include holland::augeas
 
   # The base Holland package
   package { 'holland':
