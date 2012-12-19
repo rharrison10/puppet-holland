@@ -44,7 +44,9 @@ class holland::mysqldump (
   # it doesn't require the +mysql+ package which provides the +mysqldump+ command.  If you are backing up a remote database this
   # could cause backups to fail.  We'll include the +mysql+ package if it isn't defined elsewhere.
   if $ensure == 'present' {
-    ensure_packages(['mysql'])
+    # FIXME Work around a bug in Puppet 2.6 that doesn't handle parsing arrays as the only argument to a function.
+    $missing_pkgs = [ 'mysql' ]
+    ensure_packages($missing_pkgs)
   }
 
   # Install the mysqldump provider

@@ -69,12 +69,14 @@ class holland::config (
   # TODO test all plugin_dirs entries are valid file paths
   $plugin_dirs_changes = regsubst($plugin_dirs, '(.*)', 'set holland/plugin_dirs[ . = "\1" ] \1')
 
-  $conf_changes        = flatten([$basic_changes, $plugin_dirs_changes])
+  # FIXME Work around a bug in Puppet 2.6 that doesn't handle parsing arrays as the only argument to a function.
+  $conf_changes        = [ $basic_changes, $plugin_dirs_changes ]
+  $augeas_changes      = flatten($conf_changes)
 
   # The file +holland.aug+ is managed by the +holland+ class
   augeas { '/etc/holland/holland.conf':
     context => '/files/etc/holland/holland.conf',
-    changes => $conf_changes,
+    changes => $augeas_changes,
     require => [
       File['/usr/share/augeas/lenses/dist/holland.aug'],
       Package['holland'],
