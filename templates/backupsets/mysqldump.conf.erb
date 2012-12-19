@@ -1,0 +1,92 @@
+[holland:backup]
+plugin = mysqldump
+backups-to-keep = <%= @backups_to_keep %>
+auto-purge-failures = <%= @auto_purge_failures %>
+purge-policy = <%= @purge_policy %>
+estimated-size-factor = <%= @estimated_size_factor %>
+
+[mysqldump]
+extra-defaults = no
+<% if @mysql_binpath -%>
+mysql-binpath       = <%= @mysql_binpath %>
+<% end -%>
+
+<% if @lock_method -%>
+lock-method         = <%= @lock_method %>
+<% end -%>
+<% if @databases -%>
+databases           = "<%= @databases %>"
+<% end -%>
+<% if @exclude_databases -%>
+exclude-databases   = <%= @exclude_databases %>
+<% end -%>
+
+<% if @tables -%>
+tables              = "<%= @tables %>"
+<% end -%>
+<% if @exclude_tables -%>
+exclude-tables              = "<%= @exclude_tables %>"
+<% end -%>
+
+engines = *,
+exclude-engines = ,
+
+<% if @flush_logs -%>
+flush-logs          = <%= @flush_logs %>
+<% end -%>
+flush-privileges = yes
+<% if @dump_routines -%>
+dump-routines       = <%= @dump_routines %>
+<% end -%>
+<% if @dump_events -%>
+dump-events     = <%= @dump_events %>
+<% end -%>
+<% if @stop_slave -%>
+stop-slave          = <%= @stop_slave %>
+<% end -%>
+max-allowed-packet = 128M
+<% if @bin_log_position -%>
+bin-log-position    = <%= @bin_log_position %>
+<% end -%>
+<% if @file_per_database -%>
+file-per-database   = <%= @file_per_database %>
+<% end -%>
+<% if @additional_options %>
+additional-options  = "<%= @additional_options %>"
+<% end -%>
+
+estimate-method = plugin
+
+[compression]
+<% if @compress_method -%>
+method              = <%= @compress_method %>
+<% end -%>
+<% if @compress_inline -%>
+inline              = <%= @compress_inline %>
+<% end -%>
+<% if $compress_level -%>
+level               = <%= @compress_level %>
+<% end -%>
+<% if @compress_bin_path -%>
+bin-path           = <%= @compress_bin_path %>
+<% end -%>
+
+[mysql:client]
+<% if @defaults_extra_file -%>
+defaults-extra-file = <%= @defaults_extra_file %>
+<% end -%>
+<% if @mysql_user -%>
+user                = <%= @mysql_user %>
+<% end -%>
+<% if @mysql_password -%>
+password             = <%= @mysql_password %>
+<% end -%>
+<% if @mysql_socket -%>
+socket               = <%= @mysql_socket %>
+<% end -%>
+<% if @mysql_host -%>
+host                 = <%= @mysql_host %>
+<% end -%>
+<% if @mysql_port -%>
+port                 = <%= @mysql_port %>
+<% end -%>
