@@ -167,7 +167,7 @@ class holland::mysqldump::config (
     fail("compress_inline = ${compress_inline} must be either 'yes' or 'no'")
   }
 
-  if !($compress_level in range(0, 9)) {
+  if !( is_integer($compress_level) ) and !( member( range(0, 9), $compress_level ) ) {
     fail("compress_level = ${compress_level} must be an integer in the range 0 to 9")
   }
 

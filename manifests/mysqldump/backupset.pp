@@ -186,7 +186,7 @@ define holland::mysqldump::backupset (
     fail("compress_inline = ${compress_inline} must be either 'yes' or 'no'")
   }
 
-  if $compress_level and !($compress_level in range(0, 9)) {
+  if $compress_level and !( is_integer($compress_level) ) and !( member( range(0, 9), $compress_level ) ) {
     fail("compress_level = ${compress_level} must be an integer in the range 0 to 9")
   }
 
