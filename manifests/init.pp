@@ -50,7 +50,11 @@ class holland (
   }
 
   # Make sure the configuration directories have the correct permissions. Slightly more secure than the package defaults
-  file { ['/etc/holland', '/etc/holland/backupsets', '/etc/holland/providers']:
+  file { [
+    '/etc/holland',
+    '/etc/holland/backupsets',
+    '/etc/holland/providers'
+  ]:
     ensure  => $ensure_dir,
     owner   => 'root',
     group   => 'root',

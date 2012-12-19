@@ -1,6 +1,7 @@
 # == Class: holland::config
 #
-# Manage the overall {Holland Backup Manager}[http://hollandbackup.org/] configuration. This only needs to be used if you wish to change the default values provided when the +holland+ package is installed.
+# Manage the overall {Holland Backup Manager}[http://hollandbackup.org/] configuration. This only needs to be used if you wish to
+# change the default values provided when the +holland+ package is installed.
 #
 # === Parameters
 #
