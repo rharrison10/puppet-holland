@@ -9,7 +9,7 @@
 #   Top-level directory where backups are held.
 # [*logfile*]
 #   The file Holland logs to
-# [*loglevel*]
+# [*log_level*]
 #   Sets the verbosity of Holland’s logging process. Available options are <tt>debug</tt>, <tt>info</tt>, <tt>warning</tt>,
 #   <tt>error</tt>, and <tt>critical</tt>
 # [*path*]
@@ -46,7 +46,7 @@
 class holland::config (
   $backup_directory = '/var/spool/holland',
   $logfile          = '/var/log/holland/holland.log',
-  $loglevel         = 'info',
+  $log_level        = 'info',
   $path             = '/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin',
   $plugin_dirs      = '/usr/share/holland/plugins',
   $umask            = '0007'
@@ -56,15 +56,15 @@ class holland::config (
   validate_absolute_path($backup_directory)
   validate_absolute_path($logfile)
 
-  if !($loglevel in ['debug', 'info', 'warning', 'error', 'critical']) {
-    fail("loglevel = ${loglevel} must be one of debug, info, warning, error, or critical")
+  if !($log_level in ['debug', 'info', 'warning', 'error', 'critical']) {
+    fail("log_level = ${log_level} must be one of debug, info, warning, error, or critical")
   }
   $basic_changes       = [
     "set holland/backup_directory ${backup_directory}",
     "set holland/path ${path}",
     "set holland/umask ${umask}",
     "set logging/filename ${logfile}",
-    "set logging/level ${loglevel}",]
+    "set logging/level ${log_level}",]
 
   # TODO test all plugin_dirs entries are valid file paths
   $plugin_dirs_changes = regsubst($plugin_dirs, '(.*)', 'set holland/plugin_dirs[ . = "\1" ] \1')
