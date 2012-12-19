@@ -170,7 +170,7 @@ define holland::mysqldump::backupset (
     validate_string($additional_options)
   }
 
-  if !($auto_purge_failures in ['yes', 'no', undef]) {
+  if $auto_purge_failures and !($auto_purge_failures in ['yes', 'no']) {
     fail("auto_purge_failures = ${auto_purge_failures} must be either 'yes' or 'no'")
   }
 
@@ -182,15 +182,15 @@ define holland::mysqldump::backupset (
     validate_absolute_path($compress_bin_path)
   }
 
-  if !($compress_inline in ['yes', 'no', undef]) {
+  if $compress_inline and !($compress_inline in ['yes', 'no']) {
     fail("compress_inline = ${compress_inline} must be either 'yes' or 'no'")
   }
 
-  if $compress_level != undef and !($compress_level in range(0, 9)) {
+  if $compress_level and !($compress_level in range(0, 9)) {
     fail("compress_level = ${compress_level} must be an integer in the range 0 to 9")
   }
 
-  if !($compress_method in ['gzip', 'pigz', 'bzip', 'lzop', 'lzma', undef]) {
+  if $compress_method and !($compress_method in ['gzip', 'pigz', 'bzip', 'lzop', 'lzma']) {
     fail("compress_method = ${compress_method} must be one of 'gzip', 'pigz', 'bzip', 'lzop', or 'lzma'")
   }
 
@@ -202,11 +202,11 @@ define holland::mysqldump::backupset (
     validate_string($defaults_extra_file)
   }
 
-  if !($dump_events in ['yes', 'no', undef]) {
+  if $dump_events and !($dump_events in ['yes', 'no']) {
     fail("dump_events = ${dump_events} must be either 'yes' or 'no'")
   }
 
-  if !($dump_routines in ['yes', 'no', undef]) {
+  if $dump_routines and !($dump_routines in ['yes', 'no']) {
     fail("dump_routines = ${dump_routines} must be either 'yes' or 'no'")
   }
 
@@ -222,18 +222,15 @@ define holland::mysqldump::backupset (
     validate_string($exclude_tables)
   }
 
-  if !($file_per_database in ['yes', 'no', undef]) {
+  if $file_per_database and !($file_per_database in ['yes', 'no']) {
     fail("file_per_database = ${file_per_database} must be either 'yes' or 'no'")
   }
 
-  if !($flush_logs in [
-    'yes',
-    'no',
-    undef]) {
+  if $flush_logs and !($flush_logs in ['yes', 'no']) {
     fail("flush_logs = ${flush_logs} must be either 'yes' or 'no'")
   }
 
-  if !($lock_method in ['flush-lock', 'lock-tables', 'single-transaction', 'auto-detect', 'none', undef]) {
+  if $lock_method and !($lock_method in ['flush-lock', 'lock-tables', 'single-transaction', 'auto-detect', 'none']) {
     fail("lock_method = ${lock_method} must be one of 'flush-lock', 'lock-tables', 'single-transaction', 'auto-detect', or 'none'")
   }
 
@@ -266,7 +263,7 @@ define holland::mysqldump::backupset (
     fail("purge_policy = ${purge_policy} must be one of 'manual', 'before-backup', or 'after-backup'")
   }
 
-  if !($stop_slave in ['yes', 'no', undef]) {
+  if $stop_slave and !($stop_slave in ['yes', 'no']) {
     fail("stop_slave = ${stop_slave} must be either 'yes' or 'no'")
   }
 
