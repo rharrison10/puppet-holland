@@ -67,7 +67,7 @@ class holland::config (
     "set logging/level ${log_level}",]
 
   # TODO test all plugin_dirs entries are valid file paths
-  $plugin_dirs_changes = regsubst($plugin_dirs, '(.*)', 'set holland/plugin_dirs[ . = "\1" ] \1')
+  $plugin_dirs_changes = regsubst($plugin_dirs, '(.*)', 'set holland/plugin_dirs/path[ . = "\1" ] \1')
 
   # FIXME Work around a bug in Puppet 2.6 that doesn't handle parsing arrays as the only argument to a function.
   $conf_changes        = [ $basic_changes, $plugin_dirs_changes ]
@@ -77,6 +77,7 @@ class holland::config (
   augeas { '/etc/holland/holland.conf':
     context => '/files/etc/holland/holland.conf',
     changes => $augeas_changes,
+    onlyif  => 'match holland size == 1',
     require => [
       File['/usr/share/augeas/lenses/dist/holland.aug'],
       Package['holland'],
