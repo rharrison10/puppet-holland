@@ -282,14 +282,15 @@ define holland::mysqldump::backupset (
 
   $augeas_changes = $ensure ? {
     'absent' => "rm holland/backupsets/set[ . = \"${name}\"]",
-    default  => "holland/backupsets/set[ . = \"${name}\"] ${name}",
+    default  => "set holland/backupsets/set[ . = \"${name}\"] ${name}",
   }
 
   # Add the backup set to the main <tt>holland.conf</tt>
   augeas { "/etc/holland/holland.conf/holland/backupsets/set ${name}":
-    context => '/files/etc/holland/holland.conf',
+    context => '/files/etc/holland/holland.conf/',
     changes => $augeas_changes,
     onlyif  => 'match holland size == 1',
     require => File["/etc/holland/backupsets/${name}.conf"],
+    notify  => Exec['holland_remove_default_set'],
   }
 }
