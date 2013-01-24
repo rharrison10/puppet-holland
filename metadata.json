@@ -18,7 +18,7 @@
     "manifests/mysqldump/backupset.pp": "9e121559af6d17a7fc2ff15130a5f7a8",
     "manifests/mysqldump/config.pp": "92da8fb743e16dc80e7f9f45e97ff280",
     "spec/spec_helper.rb": "74e30bf432595b74af64dee36bb53213",
-    "templates/backupsets/mysqldump.conf.erb": "074cdd6e686cde9986754fa7863fcfa6",
+    "templates/backupsets/mysqldump.conf.erb": "faacc3d1083ea07e1571c4b646a8fde3",
     "templates/providers/mysqldump.conf.erb": "556a72efe5a5a5641cbd5482121f3c47",
     "tests/init.pp": "a6a67ea9deca227a9e476d217d245254"
   },
