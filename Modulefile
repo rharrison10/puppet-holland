@@ -1,5 +1,5 @@
 name 'rharrison-holland'
-version '0.0.1'
+version '0.0.2'
 
 author 'rharrison'
 license 'Apache License, Version 2.0'
