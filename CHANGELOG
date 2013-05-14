@@ -1,3 +1,6 @@
-## 2013-01-24  Russell Harrison <rharrison@fedoraproject.org> - 0.0.2
-* Fix incorrect variable in the mysqldump backupset template
-* Include licence documentation
+2013-05-14  Russell Harrison  <rharrison@fedoraproject.org> - 0.0.3
+    * Move to absolute qualification of variables and classes to avoid https://projects.puppetlabs.com/issues/17335
+
+2013-01-24  Russell Harrison  <rharrison@fedoraproject.org> - 0.0.2
+    * Fix incorrect variable in the mysqldump backupset template
+    * Include licence documentation

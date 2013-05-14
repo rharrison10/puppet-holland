@@ -6,24 +6,24 @@
   "project_page": "https://github.com/rharrison10/puppet-holland",
   "source": "https://github.com/rharrison10/puppet-holland",
   "summary": "Puppet module to manage Holland Backup Manager",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "checksums": {
-    "CHANGELOG": "05345c72b1d2f2799a9406bf2b61eeb2",
+    "CHANGELOG": "9f55f8b9aebd58e95b4b540a7bcc322b",
     "LICENSE": "3b83ef96387f14655fc854ddc3c6bd57",
-    "Modulefile": "478e6a90ef6df79df75a3f5da8cd7d45",
+    "Modulefile": "3397f46707b90b961208633370ac5305",
     "NOTICE": "6a00cf3e64dc790539b9dfabdee7d2d6",
     "README.md": "1be99f5c56c8a724bac3f432476781cc",
     "files/augeas/holland.aug": "2b3b6ff0767c4dc2958432c10aa5fdec",
     "files/augeas/test_holland.aug": "a6def33f942c27a30878bb31837dd07f",
-    "manifests/config.pp": "b9cc47ae0a3dc4b356dcfa9b22447c15",
-    "manifests/init.pp": "1c2575e3eccd576987d4cb94b244daaa",
-    "manifests/mysqldump.pp": "eaba78c0903fb67f08cb9aa2ceb99abe",
-    "manifests/mysqldump/backupset.pp": "9e121559af6d17a7fc2ff15130a5f7a8",
-    "manifests/mysqldump/config.pp": "92da8fb743e16dc80e7f9f45e97ff280",
+    "manifests/config.pp": "57b72ee4e2f8183e139cd6a32f07d8db",
+    "manifests/init.pp": "f31fbe09f9daaa101813f3408446139e",
+    "manifests/mysqldump.pp": "ccaa725115a05fd8dd4c0f73ea35f1ba",
+    "manifests/mysqldump/backupset.pp": "0f32f487fcd17cfd971a26d38cd46e3e",
+    "manifests/mysqldump/config.pp": "5d6f89ca4e0b890eb5198aedd7126100",
     "spec/spec_helper.rb": "74e30bf432595b74af64dee36bb53213",
     "templates/backupsets/mysqldump.conf.erb": "faacc3d1083ea07e1571c4b646a8fde3",
     "templates/providers/mysqldump.conf.erb": "556a72efe5a5a5641cbd5482121f3c47",
-    "tests/init.pp": "a6a67ea9deca227a9e476d217d245254"
+    "tests/init.pp": "1ed3e7a9538062024c3593463a81ad35"
   },
   "dependencies": [
     {

@@ -98,7 +98,7 @@
 #
 # === Examples
 #
-#  class { 'holland::mysqldump::config':
+#  class { '::holland::mysqldump::config':
 #    example => [ 'server1.example.org', 'server2.example.com' ]
 #  }
 #
@@ -146,7 +146,7 @@ class holland::mysqldump::config (
   $stop_slave          = 'no',
   $tables              = undef
 ) {
-  include holland::mysqldump
+  include ::holland::mysqldump
 
   if !($ensure in [
     'file',

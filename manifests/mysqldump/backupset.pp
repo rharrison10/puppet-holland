@@ -160,7 +160,7 @@ define holland::mysqldump::backupset (
   $stop_slave            = undef,
   $tables                = undef
 ) {
-  include holland::mysqldump
+  include ::holland::mysqldump
 
   if !($ensure in ['file', 'absent']) {
     fail("ensure = ${ensure} must be either 'file' or 'absent'")

@@ -21,7 +21,7 @@
 #
 # === Examples
 #
-#  class { 'holland::config':
+#  class { '::holland::config':
 #    example => [ 'server1.example.org', 'server2.example.com' ]
 #  }
 #
@@ -51,7 +51,7 @@ class holland::config (
   $plugin_dirs      = '/usr/share/holland/plugins',
   $umask            = '0007'
 ) {
-  include holland
+  include ::holland
 
   validate_absolute_path($backup_directory)
   validate_absolute_path($logfile)

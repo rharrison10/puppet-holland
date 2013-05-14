@@ -9,7 +9,7 @@
 #
 # === Examples
 #
-#  class { 'holland::mysqldump':
+#  class { '::holland::mysqldump':
 #    example => [ 'server1.example.org', 'server2.example.com' ]
 #  }
 #
@@ -34,7 +34,7 @@
 class holland::mysqldump (
   $ensure = 'present'
 ) {
-  include holland
+  include ::holland
 
   if !($ensure in ['present', 'absent']) {
     fail("ensure = ${ensure} must be either 'present' or 'absent'")
@@ -56,7 +56,7 @@ class holland::mysqldump (
 
   # If the +ensure+ parameter is +absent+ we need to clean up the provider configuration as well.
   if $ensure == 'absent' {
-    class { 'holland::mysqldump::config':
+    class { '::holland::mysqldump::config':
       ensure => absent,
     }
   }

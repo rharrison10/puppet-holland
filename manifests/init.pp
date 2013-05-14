@@ -12,7 +12,7 @@
 #
 # === Examples
 #
-#  include holland
+#  include ::holland
 #
 # === Copyright
 #
