@@ -288,6 +288,8 @@ define holland::mysqldump::backupset (
   # Add the backup set to the main <tt>holland.conf</tt>
   augeas { "/etc/holland/holland.conf/holland/backupsets/set ${name}":
     context => '/files/etc/holland/holland.conf/',
+    incl    => '/etc/holland/holland.conf',
+    lens    => 'Holland.lns',
     changes => $augeas_changes,
     onlyif  => 'match holland size == 1',
     require => File["/etc/holland/backupsets/${name}.conf"],

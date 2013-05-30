@@ -76,6 +76,8 @@ class holland::config (
   # The file +holland.aug+ is managed by the +holland+ class
   augeas { '/etc/holland/holland.conf':
     context => '/files/etc/holland/holland.conf/',
+    incl    => '/etc/holland/holland.conf',
+    lens    => 'Holland.lns',
     changes => $augeas_changes,
     onlyif  => 'match holland size == 1',
     require => [
