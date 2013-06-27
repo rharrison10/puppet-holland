@@ -59,6 +59,8 @@ class holland (
     owner   => 'root',
     group   => 'root',
     mode    => '0750',
+    recurse => true,
+    purge   => true,
     require => Package['holland'],
   }
 

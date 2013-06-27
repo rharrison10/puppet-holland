@@ -16,7 +16,7 @@
     "files/augeas/holland.aug": "2b3b6ff0767c4dc2958432c10aa5fdec",
     "files/augeas/test_holland.aug": "a6def33f942c27a30878bb31837dd07f",
     "manifests/config.pp": "f41f1b617d7b4f3f4c84c920397b5be3",
-    "manifests/init.pp": "f31fbe09f9daaa101813f3408446139e",
+    "manifests/init.pp": "de9f11cea4b924262baabeabf347ba22",
     "manifests/mysqldump.pp": "ccaa725115a05fd8dd4c0f73ea35f1ba",
     "manifests/mysqldump/backupset.pp": "cdc4aae2f3df7351ca2e247d5bf297bf",
     "manifests/mysqldump/config.pp": "5d6f89ca4e0b890eb5198aedd7126100",
