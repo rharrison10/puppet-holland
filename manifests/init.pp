@@ -81,13 +81,15 @@ class holland (
   }
 
   # Its also good practice to include the test file with the lens so we'll manage it as well.
-  file { '/usr/share/augeas/lenses/dist/tests/test_holland.aug':
-    ensure => $ensure,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-    source => 'puppet:///modules/holland/augeas/test_holland.aug',
-  }
+  # As of version 1.0.0-5 of the Red Hat rpm test lenses are no longer included in augeas-libs
+  # so I'm going to comment this out for now.
+#  file { '/usr/share/augeas/lenses/dist/tests/test_holland.aug':
+#    ensure => $ensure,
+#    owner  => 'root',
+#    group  => 'root',
+#    mode   => '0644',
+#    source => 'puppet:///modules/holland/augeas/test_holland.aug',
+#  }
 
   # The <tt>holland</tt> package installs a default file with a <tt>default</tt> backup set configured but doesn't lay down a
   # configuration file for this backup set which causes <tt>holland backup</tt> to fail.  This <tt>exec</tt> removes the backup set

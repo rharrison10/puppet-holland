@@ -1,3 +1,7 @@
+2014-06-09  Russell Harrison  <rharrison@fedoraproject.org> - 0.0.5
+  * As of version 1.0.0-5 of the Red Hat rpm test lenses are no longer
+  included in augeas-libs so I'm going to comment out including it for now.
+
 2013-05-30  Russell Harrison  <rharrison@fedoraproject.org> - 0.0.4
   * Specify which files to load and lenes to use for augeas types for major
   performance improvements
