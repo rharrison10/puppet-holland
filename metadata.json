@@ -1,27 +1,31 @@
 {
   "author": "rharrison",
   "checksums": {
-    "NOTICE": "6a00cf3e64dc790539b9dfabdee7d2d6",
-    "templates/providers/mysqldump.conf.erb": "556a72efe5a5a5641cbd5482121f3c47",
-    "files/augeas/test_holland.aug": "a6def33f942c27a30878bb31837dd07f",
-    "templates/backupsets/mysqldump.conf.erb": "faacc3d1083ea07e1571c4b646a8fde3",
-    "manifests/mysqldump/config.pp": "5d6f89ca4e0b890eb5198aedd7126100",
-    "Modulefile": "5494ce0da9819d03a01254b16d9bf436",
-    "tests/init.pp": "1ed3e7a9538062024c3593463a81ad35",
-    "spec/spec_helper.rb": "74e30bf432595b74af64dee36bb53213",
+    "CHANGELOG": "286b240062e48b301be39e6dac91377d",
     "LICENSE": "3b83ef96387f14655fc854ddc3c6bd57",
+    "Modulefile": "f30bd4757a8afa6fcb3d202e8f880394",
+    "NOTICE": "6a00cf3e64dc790539b9dfabdee7d2d6",
+    "README.md": "1be99f5c56c8a724bac3f432476781cc",
     "files/augeas/holland.aug": "2b3b6ff0767c4dc2958432c10aa5fdec",
-    "manifests/init.pp": "8c6437a9f061e28260d1937cdef8bffb",
+    "files/augeas/test_holland.aug": "a6def33f942c27a30878bb31837dd07f",
     "manifests/config.pp": "f41f1b617d7b4f3f4c84c920397b5be3",
-    "CHANGELOG": "5427bd5229210cdabd062c36eec9b72f",
+    "manifests/init.pp": "8c6437a9f061e28260d1937cdef8bffb",
     "manifests/mysqldump/backupset.pp": "cdc4aae2f3df7351ca2e247d5bf297bf",
-    "manifests/mysqldump.pp": "ccaa725115a05fd8dd4c0f73ea35f1ba",
-    "README.md": "1be99f5c56c8a724bac3f432476781cc"
+    "manifests/mysqldump/config.pp": "5d6f89ca4e0b890eb5198aedd7126100",
+    "manifests/mysqldump.pp": "963dbdeef1f0d34d73f354cba8879b8a",
+    "spec/spec_helper.rb": "74e30bf432595b74af64dee36bb53213",
+    "templates/backupsets/mysqldump.conf.erb": "faacc3d1083ea07e1571c4b646a8fde3",
+    "templates/providers/mysqldump.conf.erb": "556a72efe5a5a5641cbd5482121f3c47",
+    "tests/init.pp": "1ed3e7a9538062024c3593463a81ad35"
   },
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": "\u003e\u003d2.6.0"
+      "version_requirement": ">=2.6.0"
+    },
+    {
+      "name": "puppetlabs/mysql",
+      "version_requirement": ">=2.0.0"
     }
   ],
   "description": "Puppet module to manage Holland Backup Manager",
@@ -30,6 +34,8 @@
   "project_page": "https://github.com/rharrison10/puppet-holland",
   "source": "https://github.com/rharrison10/puppet-holland",
   "summary": "Puppet module to manage Holland Backup Manager",
-  "types": [],
-  "version": "0.0.5"
+  "types": [
+
+  ],
+  "version": "0.0.6"
 }

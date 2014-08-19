@@ -1,3 +1,6 @@
+2014-08-19  Russell Harrison  <rharrison@fedoraproject.org> - 0.0.6
+  * Play nice with the puppetlabs-mysql module
+
 2014-06-09  Russell Harrison  <rharrison@fedoraproject.org> - 0.0.5
   * As of version 1.0.0-5 of the Red Hat rpm test lenses are no longer
   included in augeas-libs so I'm going to comment out including it for now.

@@ -1,5 +1,5 @@
 name 'rharrison-holland'
-version '0.0.5'
+version '0.0.6'
 
 author 'rharrison'
 license 'Apache License, Version 2.0'
@@ -8,3 +8,4 @@ source 'https://github.com/rharrison10/puppet-holland'
 summary 'Puppet module to manage Holland Backup Manager'
 description 'Puppet module to manage Holland Backup Manager'
 dependency 'puppetlabs/stdlib', '>=2.6.0'
+dependency 'puppetlabs/mysql', '>=2.0.0'
