@@ -1,8 +1,3 @@
-# Change the global configuration for the [Holland Backup Manager](http://hollandbackup.org/)
-# [mysqldump](http://docs.hollandbackup.org/provider_configs/mysqldump.html)
-# provider.  These settings can be overridden by the configuration values
-# provided in a specific `mysqldump` backup set.
-#
 # @summary Manage the Holland mysqldump provider configuration.
 #
 # @api private

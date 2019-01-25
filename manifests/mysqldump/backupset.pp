@@ -200,8 +200,13 @@ define holland::mysqldump::backupset(
     validate_absolute_path($mysql_socket)
   }
 
+  $file_ensure = $ensure ? {
+    'present' => file,
+    default   => $ensure
+  }
+
   file { "/etc/holland/backupsets/${name}.conf":
-    ensure  => $ensure,
+    ensure  => $file_ensure,
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
