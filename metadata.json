@@ -1,30 +1,24 @@
 {
   "name": "rharrison-holland",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "author": "rharrison",
   "summary": "Puppet module to manage Holland Backup Manager",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "source": "https://github.com/rharrison10/puppet-holland",
   "project_page": "https://github.com/rharrison10/puppet-holland",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">=2.6.0"
+      "version_requirement": ">= 5.0.0 < 6.0.0"
     },
     {
       "name": "puppetlabs/mysql",
-      "version_requirement": ">=2.0.0"
+      "version_requirement": ">= 6.0.0 < 7.0.0"
     }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "CentOS",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
         "7"
       ]
@@ -39,26 +33,6 @@
       "operatingsystem": "Scientific",
       "operatingsystemrelease": [
         "7"
-      ]
-    },
-    {
-      "operatingsystem": "Debian",
-      "operatingsystemrelease": [
-        "8"
-      ]
-    },
-    {
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [
-        "16.04"
-      ]
-    },
-    {
-      "operatingsystem": "windows",
-      "operatingsystemrelease": [
-        "2008 R2",
-        "2012 R2",
-        "10"
       ]
     }
   ],
@@ -87,9 +61,6 @@
     "tests/init.pp": "1ed3e7a9538062024c3593463a81ad35"
   },
   "description": "Puppet module to manage Holland Backup Manager",
-  "types": [
-
-  ],
   "pdk-version": "1.8.0",
   "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
   "template-ref": "1.8.0-0-g0d9da00"
