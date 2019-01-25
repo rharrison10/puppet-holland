@@ -1,3 +1,6 @@
+2019-01-25  Russell Harrison  <rharrison@fedoraproject.org> - 1.0.0
+  * Updates to bring the module in line with Puppet 5+ standards
+
 2014-08-19  Russell Harrison  <rharrison@fedoraproject.org> - 0.0.6
   * Play nice with the puppetlabs-mysql module
 

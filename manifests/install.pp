@@ -5,7 +5,7 @@
 # @example
 #   include holland::install
 class holland::install (
-  Enume['absent', 'present'] $ensure = $::holland::ensure,
+  Enum['absent', 'present'] $ensure = $::holland::ensure,
 ){
   # The base Holland package
   package { 'holland':

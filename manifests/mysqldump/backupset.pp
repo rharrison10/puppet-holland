@@ -206,7 +206,7 @@ define holland::mysqldump::backupset(
     group   => 'root',
     mode    => '0640',
     content => template('holland/backupsets/mysqldump.conf.erb'),
-    require => Package['holland-mysqldump'],
+    require => Class['holland::mysqldump'],
   }
 
   $augeas_changes = $ensure ? {
@@ -222,6 +222,6 @@ define holland::mysqldump::backupset(
     changes => $augeas_changes,
     onlyif  => 'match holland size == 1',
     require => File["/etc/holland/backupsets/${name}.conf"],
-    notify  => Exec['holland_remove_default_set'],
+    notify  => Class['holland::config'],
   }
 }

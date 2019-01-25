@@ -64,6 +64,5 @@ class holland::mysqldump::config (
     group   => 'root',
     mode    => '0640',
     content => template('holland/providers/mysqldump.conf.erb'),
-    require => Class['holland::mysqldump::install'],
   }
 }
