@@ -112,7 +112,7 @@ define holland::mongodump::backupset(
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
-    content => template('holland/backupsets/mysqldump.conf.erb'),
+    content => template('holland/backupsets/mongodump.conf.erb'),
     require => Class['holland::mongodump'],
   }
 
