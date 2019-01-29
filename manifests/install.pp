@@ -40,8 +40,9 @@ class holland::install (
     require => Package['holland'],
   }
 
-  # Put the Augeas lens in place.
-  file { '/usr/share/augeas/lenses/dist/holland.aug':
+  # Put the Augeas lens in place. This only works for the Puppetlabs omnibus
+  # packages
+  file { '/opt/puppetlabs/puppet/share/augeas/lenses/dist/holland.aug':
     ensure => $ensure,
     owner  => 'root',
     group  => 'root',
@@ -50,14 +51,13 @@ class holland::install (
   }
 
   # Its also good practice to include the test file with the lens so we'll
-  # manage it as well. As of version 1.0.0-5 of the Red Hat rpm test lenses are
-  # no longer included in augeas-libs so I'm going to comment this out for now.
-  # file { '/usr/share/augeas/lenses/dist/tests/test_holland.aug':
-  #   ensure => $ensure,
-  #   owner  => 'root',
-  #   group  => 'root',
-  #    mode   => '0644',
-  #    source => 'puppet:///modules/holland/augeas/test_holland.aug',
-  # }
+  # manage it as well. This only works for the Puppetlabs omnibus packages
+  file { '/opt/puppetlabs/puppet/share/augeas/lenses/dist/tests/test_holland.aug':
+    ensure => $ensure,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/holland/augeas/test_holland.aug',
+  }
 
 }
