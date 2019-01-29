@@ -41,6 +41,7 @@ let common_entry   = IniFile.indented_entry ( "backup_directory"
                                             | "path"
                                             | "filename"
                                             | "level"
+                                            | "format"
                                             ) sep comment
 
 (************************************************************************
