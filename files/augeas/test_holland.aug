@@ -28,6 +28,9 @@ filename = /var/log/holland/holland.log
 
 ## debug, info, warning, error, critical (case insensitive)
 level = info
+
+## Log format using python logging module format
+format = '%(asctime)s PID-%(process)s [%(levelname)s] %(message)s'
 "
 
   test Holland.lns get conf =
