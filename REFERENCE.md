@@ -15,6 +15,7 @@ _Private Classes_
 
 * `holland::config`: Manage the overall [Holland Backup Manager](http://hollandbackup.org/)
 configuration.
+* `holland::config::remove_default`: An exec to remove the default backupset if it doesn't exist.
 * `holland::install`: Basic install of Holland resources
 * `holland::mongodump::config`: Configuration for the Holland mongodump provider
 * `holland::mongodump::install`: Install the Holland mongodump provider
