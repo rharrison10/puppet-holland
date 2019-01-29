@@ -498,7 +498,15 @@ Configures a mongodump backup set for Holland
 ##### Inherits from provider
 
 ```puppet
-holland::mongodump::backupset { 'namevar': }
+include ::holland::mongodump
+
+holland::mongodump::backupset { "localhost":
+  ensure                  => present,
+  authentication_database => 'admin',
+  host                    => 'localhost',
+  password                => 'SomeThingToChange',
+  username                => 'admin',
+}
 ```
 
 #### Parameters

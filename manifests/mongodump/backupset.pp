@@ -68,7 +68,15 @@
 #   Username for mongodump to authenticate with.
 #
 # @example Inherits from provider
-#   holland::mongodump::backupset { 'namevar': }
+#   include ::holland::mongodump
+#
+#   holland::mongodump::backupset { "localhost":
+#     ensure                  => present,
+#     authentication_database => 'admin',
+#     host                    => 'localhost',
+#     password                => 'SomeThingToChange',
+#     username                => 'admin',
+#   }
 define holland::mongodump::backupset(
   Enum['absent', 'present'] $ensure                  = present,
   Optional[String]          $additional_options      = undef,
