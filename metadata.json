@@ -6,6 +6,7 @@
   "license": "Apache-2.0",
   "source": "https://github.com/rharrison10/puppet-holland",
   "project_page": "https://github.com/rharrison10/puppet-holland",
+  "issues_url": "https://github.com/rharrison10/puppet-holland/issues",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
