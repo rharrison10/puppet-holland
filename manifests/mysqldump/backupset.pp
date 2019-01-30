@@ -200,8 +200,13 @@ define holland::mysqldump::backupset(
     validate_absolute_path($mysql_socket)
   }
 
+  $file_ensure = $ensure ? {
+    'present' => file,
+    default   => $ensure
+  }
+
   file { "/etc/holland/backupsets/${name}.conf":
-    ensure  => $ensure,
+    ensure  => $file_ensure,
     owner   => 'root',
     group   => 'root',
     mode    => '0640',
@@ -222,6 +227,6 @@ define holland::mysqldump::backupset(
     changes => $augeas_changes,
     onlyif  => 'match holland size == 1',
     require => File["/etc/holland/backupsets/${name}.conf"],
-    notify  => Class['holland::config'],
+    notify  => Class['holland::config::remove_default'],
   }
 }

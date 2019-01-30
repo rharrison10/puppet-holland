@@ -51,7 +51,7 @@ class holland (
 
   if $ensure == 'present' {
     contain ::holland::config
-    Class['holland::install'] ~> Class['holland::config']
+    Class['holland::install'] -> Class['holland::config']
   }
 
 }

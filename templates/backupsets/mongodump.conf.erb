@@ -1,0 +1,29 @@
+[holland:backup]
+plugin = mongodump
+backups-to-keep = <%= @backups_to_keep %>
+auto-purge-failures = <%= @auto_purge_failures %>
+purge-policy = <%= @purge_policy %>
+estimated-size-factor = <%= @estimated_size_factor %>
+
+[mongodump]
+<% if @host -%>
+host = "<%= @host %>"
+<% end -%>
+<% if @username -%>
+username = "<%= @username %>"
+<% end -%>
+<% if @password -%>
+password = "<%= @password %>"
+<% end -%>
+<% if @authentication_database -%>
+authenticationDatabase = "<%= @authentication_database %>"
+<% end -%>
+<% if @additional_options -%>
+additional-options = <%= @additional_options %>
+<% end -%>
+
+[compression]
+method = <%= @compression_method %>
+options = ""
+inline = <%= @compress_inline %>
+level = <%= @compression_level %>

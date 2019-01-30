@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'holland::mysqldump::backupset' do
+describe 'holland::mongodump::backupset' do
   let(:title) { 'namevar' }
   let(:params) do
     {}
@@ -9,7 +9,7 @@ describe 'holland::mysqldump::backupset' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }
-      let(:pre_condition) { 'include ::holland::mysqldump include ::holland' }
+      let(:pre_condition) { 'include ::holland::mongodump include ::holland' }
 
       it { is_expected.to compile }
     end

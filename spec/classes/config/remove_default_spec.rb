@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'holland::install' do
+describe 'holland::config::remove_default' do
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do
       let(:facts) { os_facts }
