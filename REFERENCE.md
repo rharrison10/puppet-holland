@@ -151,6 +151,14 @@ show up exactly as they are on the command line. e.g.: `'--gzip'`
 
 Default value: `undef`
 
+##### `after_backup_command`
+
+Data type: `Optional[String]`
+
+Command to run after successful backup.
+
+Default value: `undef`
+
 ##### `authentication_database`
 
 Data type: `String`
@@ -186,6 +194,14 @@ Which compression method to use. Note that lzop is not often installed by
 default on many Linux distributions and may need to be installed separately.
 
 Default value: 'gzip'
+
+##### `failed_backup_command`
+
+Data type: `Optional[String]`
+
+Command to run after failed backup.
+
+Default value: `undef`
 
 ##### `host`
 
@@ -245,6 +261,14 @@ no native Holland option for it. These should show up exactly as they would
 on the command line. e.g.: `'--flush-privileges --reset-master'`
 
 Default value: ''
+
+##### `after_backup_command`
+
+Data type: `Optional[String]`
+
+Command to run after successful backup.
+
+Default value: `undef`
 
 ##### `bin_log_position`
 
@@ -359,6 +383,14 @@ Default value: `undef`
 Data type: `Optional[String]`
 
 Comma-delimited glob patterns to exclude particular tables.
+
+Default value: `undef`
+
+##### `failed_backup_command`
+
+Data type: `Optional[String]`
+
+Command to run after failed backup.
 
 Default value: `undef`
 

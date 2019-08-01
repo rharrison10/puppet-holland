@@ -14,6 +14,9 @@
 #   Any additional options to the `mongodump` command-line utility these should
 #   show up exactly as they are on the command line. e.g.: `'--gzip'`
 #
+# @param after_backup_command
+#   Command to run after successful backup.
+#
 # @param authentication_database
 #   The database the mongo user needs to authenticate against.
 #
@@ -29,6 +32,9 @@
 #   Which compression method to use. Note that lzop is not often installed by
 #   default on many Linux distributions and may need to be installed separately.
 #
+# @param failed_backup_command
+#   Command to run after failed backup.
+#
 # @param host
 #   Hostname for mongodump to connect with.
 #
@@ -43,6 +49,7 @@
 class holland::mongodump (
   Enum['absent', 'present'] $ensure                  = present,
   Optional[String]          $additional_options      = undef,
+  Optional[String]          $after_backup_command    = undef,
   String                    $authentication_database = '',
   Integer[0]                $compression_level       = 1,
   Enum[
@@ -52,6 +59,7 @@ class holland::mongodump (
     'pbzip2',
     'lzop'
   ]                         $compression_method      = 'gzip',
+  Optional[String]          $failed_backup_command   = undef,
   String                    $host                    = 'localhost',
   String                    $password                = '',
   String                    $username                = '',

@@ -11,6 +11,9 @@
 #   no native Holland option for it. These should show up exactly as they would
 #   on the command line. e.g.: `'--flush-privileges --reset-master'`
 #
+# @param after_backup_command
+#   Command to run after successful backup.
+#
 # @param bin_log_position
 #   Record the binary log name and position at the time of the backup. **Note**
 #   that if both `'stop-slave'` and `'bin-log-position'` are enabled, Holland
@@ -71,6 +74,9 @@
 #
 # @param exclude_tables
 #   Comma-delimited glob patterns to exclude particular tables.
+#
+# @param failed_backup_command
+#   Command to run after failed backup.
 #
 # @param file_per_database
 #   Whether or not to split up each database into its own file.  Note that it
@@ -140,36 +146,38 @@
 # @example Basic
 #   include holland::mysqldump
 class holland::mysqldump (
-  Enum['absent', 'present']                    $ensure              = present,
-  String                                       $additional_options  = '',
-  Enum['no', 'yes']                            $bin_log_position    = 'no',
-  Optional[String]                             $compress_bin_path   = undef,
-  Enum['no', 'yes']                            $compress_inline     = 'yes',
-  Integer[0, 9]                                $compress_level      = 1,
-  Enum['gzip', 'pigz', 'bzip', 'lzop', 'lzma'] $compress_method     = 'gzip',
-  Optional[String]                             $databases           = undef,
-  String                                       $defaults_extra_file = '/root/.my.cnf,~/.my.cnf,',
-  Enum['no', 'yes']                            $dump_events         = 'no',
-  Enum['no', 'yes']                            $dump_routines       = 'no',
-  Optional[String]                             $exclude_databases   = undef,
-  Optional[String]                             $exclude_tables      = undef,
-  Enum['no', 'yes']                            $file_per_database   = 'no',
-  Enum['no', 'yes']                            $flush_logs          = 'no',
+  Enum['absent', 'present']                    $ensure                = present,
+  String                                       $additional_options    = '',
+  Optional[String]                             $after_backup_command  = undef,
+  Enum['no', 'yes']                            $bin_log_position      = 'no',
+  Optional[String]                             $compress_bin_path     = undef,
+  Enum['no', 'yes']                            $compress_inline       = 'yes',
+  Integer[0, 9]                                $compress_level        = 1,
+  Enum['gzip', 'pigz', 'bzip', 'lzop', 'lzma'] $compress_method       = 'gzip',
+  Optional[String]                             $databases             = undef,
+  String                                       $defaults_extra_file   = '/root/.my.cnf,~/.my.cnf,',
+  Enum['no', 'yes']                            $dump_events           = 'no',
+  Enum['no', 'yes']                            $dump_routines         = 'no',
+  Optional[String]                             $exclude_databases     = undef,
+  Optional[String]                             $exclude_tables        = undef,
+  Optional[String]                             $failed_backup_command = undef,
+  Enum['no', 'yes']                            $file_per_database     = 'no',
+  Enum['no', 'yes']                            $flush_logs            = 'no',
   Enum[
     'flush-lock',
     'lock-tables',
     'single-transaction',
     'auto-detect',
     'none'
-  ]                                            $lock_method         = 'auto-detect',
-  Optional[String]                             $mysql_binpath       = undef,
-  Optional[String]                             $mysql_host          = undef,
-  Optional[String]                             $mysql_password      = undef,
-  Optional[Integer]                            $mysql_port          = undef,
-  Optional[String]                             $mysql_socket        = undef,
-  Optional[String]                             $mysql_user          = undef,
-  Enum['no', 'yes']                            $stop_slave          = 'no',
-  Optional[String]                             $tables              = undef,
+  ]                                            $lock_method           = 'auto-detect',
+  Optional[String]                             $mysql_binpath         = undef,
+  Optional[String]                             $mysql_host            = undef,
+  Optional[String]                             $mysql_password        = undef,
+  Optional[Integer]                            $mysql_port            = undef,
+  Optional[String]                             $mysql_socket          = undef,
+  Optional[String]                             $mysql_user            = undef,
+  Enum['no', 'yes']                            $stop_slave            = 'no',
+  Optional[String]                             $tables                = undef,
 ){
   contain ::holland::mysqldump::install
   contain ::holland::mysqldump::config
