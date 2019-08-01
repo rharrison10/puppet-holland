@@ -5,6 +5,7 @@
 class holland::mongodump::config (
   Enum['absent', 'present'] $ensure                  = $::holland::mongodump::ensure,
   Optional[String]          $additional_options      = $::holland::mongodump::additional_options,
+  Optional[String]          $after_backup_command    = $::holland::mongodump::after_backup_command,
   String                    $authentication_database = $::holland::mongodump::authentication_database,
   Integer[0]                $compression_level       = $::holland::mongodump::compression_level,
   Enum[
@@ -14,6 +15,7 @@ class holland::mongodump::config (
     'pbzip2',
     'lzop'
   ]                         $compression_method      = $::holland::mongodump::compression_method,
+  Optional[String]          $failed_backup_command   = $::holland::mongodump::failed_backup_command,
   String                    $host                    = $::holland::mongodump::host,
   String                    $password                = $::holland::mongodump::password,
   String                    $username                = $::holland::mongodump::username,

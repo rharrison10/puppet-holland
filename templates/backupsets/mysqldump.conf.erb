@@ -4,6 +4,12 @@ backups-to-keep = <%= @backups_to_keep %>
 auto-purge-failures = <%= @auto_purge_failures %>
 purge-policy = <%= @purge_policy %>
 estimated-size-factor = <%= @estimated_size_factor %>
+<% if @after_backup_command -%>
+after-backup-command = "<%= @after_backup_command %>"
+<% end -%>
+<% if @failed_backup_command -%>
+failed-backup-command = "<%= @failed_backup_command %>"
+<% end -%>
 
 [mysqldump]
 extra-defaults = no

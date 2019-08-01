@@ -7,6 +7,9 @@
 #   Any additional options to the `mongodump` command-line utility these should
 #   show up exactly as they are on the command line. e.g.: `'--gzip'`
 #
+# @param after_backup_command
+#   Command to run after successful backup.
+#
 # @param authentication_database
 #   The database the mongo user needs to authenticate against.
 #
@@ -42,6 +45,9 @@
 #   space to perform a backup. This number is multiplied against what each
 #   individual plugin reports its estimated backup size when Holland is
 #   verifying sufficient free space for the backupset.
+#
+# @param failed_backup_command
+#   Command to run after failed backup.
 #
 # @param host
 #   Hostname for mongodump to connect with.
@@ -80,6 +86,7 @@
 define holland::mongodump::backupset(
   Enum['absent', 'present'] $ensure                  = present,
   Optional[String]          $additional_options      = undef,
+  Optional[String]          $after_backup_command    = undef,
   Optional[String]          $authentication_database = undef,
   Enum['no', 'yes']         $auto_purge_failures     = 'yes',
   Integer[1]                $backups_to_keep         = 1,
@@ -93,6 +100,7 @@ define holland::mongodump::backupset(
     'lzop'
   ]                         $compression_method      = 'gzip',
   Float                     $estimated_size_factor   = 1.0,
+  Optional[String]          $failed_backup_command   = undef,
   Optional[String]          $host                    = undef,
   Optional[String]          $password                = undef,
   Enum[
