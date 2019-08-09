@@ -7,7 +7,7 @@ class holland::mysqldump::config (
   String                                       $additional_options    = $::holland::mysqldump::additional_options,
   Optional[String]                             $after_backup_command  = $::holland::mysqldump::after_backup_command,
   Enum['no', 'yes']                            $bin_log_position      = $::holland::mysqldump::bin_log_position,
-  Optional[String]                             $before_backup_command = $::holland::mongodump::before_backup_command,
+  Optional[String]                             $before_backup_command = $::holland::mysqldump::before_backup_command,
   Optional[String]                             $compress_bin_path     = $::holland::mysqldump::compress_bin_path,
   Enum['no', 'yes']                            $compress_inline       = $::holland::mysqldump::compress_inline,
   Integer[0, 9]                                $compress_level        = $::holland::mysqldump::compress_level,
