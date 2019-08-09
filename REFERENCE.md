@@ -167,6 +167,14 @@ The database the mongo user needs to authenticate against.
 
 Default value: ''
 
+##### `before_backup_command`
+
+Data type: `Optional[String]`
+
+Run a shell command before a backup starts.
+
+Default value: `undef`
+
 ##### `compression_level`
 
 Data type: `Integer[0]`
@@ -267,6 +275,14 @@ Default value: ''
 Data type: `Optional[String]`
 
 Command to run after successful backup.
+
+Default value: `undef`
+
+##### `before_backup_command`
+
+Data type: `Optional[String]`
+
+Run a shell command before a backup starts.
 
 Default value: `undef`
 
@@ -599,6 +615,14 @@ Specifies the number of backups to keep for a backup-set.
 
 Default value: 1
 
+##### `before_backup_command`
+
+Data type: `Optional[String]`
+
+Run a shell command before a backup starts.
+
+Default value: `undef`
+
 ##### `compress_inline`
 
 Data type: `Enum['no', 'yes']`
@@ -765,6 +789,14 @@ Data type: `Integer`
 Specifies the number of backups to keep for a backup-set.
 
 Default value: 1
+
+##### `before_backup_command`
+
+Data type: `Optional[String]`
+
+Run a shell command before a backup starts.
+
+Default value: `undef`
 
 ##### `compress_bin_path`
 

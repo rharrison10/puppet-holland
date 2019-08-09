@@ -14,6 +14,9 @@
 # @param after_backup_command
 #   Command to run after successful backup.
 #
+# @param before_backup_command
+#   Run a shell command before a backup starts.
+#
 # @param bin_log_position
 #   Record the binary log name and position at the time of the backup. **Note**
 #   that if both `'stop-slave'` and `'bin-log-position'` are enabled, Holland
@@ -149,6 +152,7 @@ class holland::mysqldump (
   Enum['absent', 'present']                    $ensure                = present,
   String                                       $additional_options    = '',
   Optional[String]                             $after_backup_command  = undef,
+  Optional[String]                             $before_backup_command = undef,
   Enum['no', 'yes']                            $bin_log_position      = 'no',
   Optional[String]                             $compress_bin_path     = undef,
   Enum['no', 'yes']                            $compress_inline       = 'yes',

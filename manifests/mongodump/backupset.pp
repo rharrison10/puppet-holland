@@ -23,6 +23,9 @@
 # @param backups_to_keep
 #   Specifies the number of backups to keep for a backup-set.
 #
+# @param before_backup_command
+#   Run a shell command before a backup starts.
+#
 # @param compress_inline
 #   Whether or not to pipe the output of `mongodump` into the compression
 #   utility. Enabling this is recommended since it usually only marginally
@@ -90,6 +93,7 @@ define holland::mongodump::backupset(
   Optional[String]          $authentication_database = undef,
   Enum['no', 'yes']         $auto_purge_failures     = 'yes',
   Integer[1]                $backups_to_keep         = 1,
+  Optional[String]          $before_backup_command   = undef,
   Enum['no', 'yes']         $compress_inline         = 'yes',
   Integer[0]                $compression_level       = 1,
   Enum[

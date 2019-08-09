@@ -21,6 +21,9 @@
 # @param backups_to_keep
 #   Specifies the number of backups to keep for a backup-set.
 #
+# @param before_backup_command
+#   Run a shell command before a backup starts.
+#
 # @param compress_bin_path
 #   This only needs to be defined if the compression utility is in a
 #   non-standard location, or not in the system path.
@@ -164,6 +167,7 @@ define holland::mysqldump::backupset(
   Optional[String]                                $after_backup_command  = undef,
   Enum['no', 'yes']                               $auto_purge_failures   = 'yes',
   Integer                                         $backups_to_keep       = 1,
+  Optional[String]                                $before_backup_command = undef,
   Optional[String]                                $compress_bin_path     = undef,
   Enum['no', 'yes']                               $compress_inline       = 'yes',
   Integer[0, 9]                                   $compress_level        = 1,

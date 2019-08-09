@@ -20,6 +20,9 @@
 # @param authentication_database
 #   The database the mongo user needs to authenticate against.
 #
+# @param before_backup_command
+#   Run a shell command before a backup starts.
+#
 # @param compression_level
 #   What compression level to use. Lower numbers mean faster compression, though
 #   also generally a worse compression ratio. Generally, levels 1-3 are
@@ -51,6 +54,7 @@ class holland::mongodump (
   Optional[String]          $additional_options      = undef,
   Optional[String]          $after_backup_command    = undef,
   String                    $authentication_database = '',
+  Optional[String]          $before_backup_command   = undef,
   Integer[0]                $compression_level       = 1,
   Enum[
     'gzip',
