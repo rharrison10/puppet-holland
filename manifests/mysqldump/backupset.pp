@@ -8,6 +8,9 @@
 #   no native Holland option for it. These should show up exactly as they would
 #   on the command line. e.g.: `'--flush-privileges --reset-master'`
 #
+# @param after_backup_command
+#   Command to run after successful backup.
+#
 # @param auto_purge_failures
 #   Specifies whether to keep a failed backup or to automatically remove the
 #   backup directory. By default this is on with the intention that whatever
@@ -17,6 +20,9 @@
 #
 # @param backups_to_keep
 #   Specifies the number of backups to keep for a backup-set.
+#
+# @param before_backup_command
+#   Run a shell command before a backup starts.
 #
 # @param compress_bin_path
 #   This only needs to be defined if the compression utility is in a
@@ -69,6 +75,9 @@
 #
 # @param exclude_tables
 #   Comma-delimited glob patterns to exclude particular tables.
+#
+# @param failed_backup_command
+#   Command to run after failed backup.
 #
 # @param file_per_database
 #   Whether or not to split up each database into its own file.  Note that it
@@ -155,8 +164,10 @@
 define holland::mysqldump::backupset(
   Enum['absent', 'file']                          $ensure                = file,
   Optional[String]                                $additional_options    = undef,
+  Optional[String]                                $after_backup_command  = undef,
   Enum['no', 'yes']                               $auto_purge_failures   = 'yes',
   Integer                                         $backups_to_keep       = 1,
+  Optional[String]                                $before_backup_command = undef,
   Optional[String]                                $compress_bin_path     = undef,
   Enum['no', 'yes']                               $compress_inline       = 'yes',
   Integer[0, 9]                                   $compress_level        = 1,
@@ -168,6 +179,7 @@ define holland::mysqldump::backupset(
   Float                                           $estimated_size_factor = 1.0,
   Optional[String]                                $exclude_databases     = undef,
   Optional[String]                                $exclude_tables        = undef,
+  Optional[String]                                $failed_backup_command = undef,
   Optional[Enum['no', 'yes']]                     $file_per_database     = undef,
   Optional[Enum['no', 'yes']]                     $flush_logs            = undef,
   Enum[
