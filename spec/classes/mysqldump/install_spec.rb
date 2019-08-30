@@ -7,6 +7,7 @@ describe 'holland::mysqldump::install' do
       let(:pre_condition) { 'include ::holland::mysqldump' }
 
       it { is_expected.to compile }
+      it { is_expected.to contain_package('holland-mysqldump').with_ensure('present') }
     end
   end
 end
