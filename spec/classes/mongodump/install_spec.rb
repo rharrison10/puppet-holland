@@ -7,6 +7,7 @@ describe 'holland::mongodump::install' do
       let(:pre_condition) { 'include ::holland::mongodump' }
 
       it { is_expected.to compile }
+      it { is_expected.to contain_package('holland-mongodump').with_ensure('present') }
     end
   end
 end

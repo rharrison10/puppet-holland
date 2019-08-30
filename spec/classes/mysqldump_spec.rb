@@ -7,6 +7,8 @@ describe 'holland::mysqldump' do
       let(:pre_condition) { 'include ::holland' }
 
       it { is_expected.to compile }
+      it { is_expected.to contain_class('holland::mysqldump::install') }
+      it { is_expected.to contain_class('holland::mysqldump::config') }
     end
   end
 end

@@ -17,6 +17,11 @@ class holland::install (
     default   => $ensure,
   }
 
+  $ensure_file = $ensure ? {
+    'present' => 'file',
+    default   => $ensure,
+  }
+
   # Make sure the configuration directories have the correct permissions.
   # Slightly more secure than the package defaults
   file { [
@@ -33,7 +38,7 @@ class holland::install (
 
   # Make sure `holland.conf` has the correct permissions
   file { '/etc/holland/holland.conf':
-    ensure  => $ensure,
+    ensure  => $ensure_file,
     owner   => 'root',
     group   => 'root',
     mode    => '0640',

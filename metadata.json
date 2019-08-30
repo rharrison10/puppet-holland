@@ -1,6 +1,6 @@
 {
   "name": "rharrison-holland",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "rharrison",
   "summary": "Puppet module to manage Holland Backup Manager",
   "license": "Apache-2.0",

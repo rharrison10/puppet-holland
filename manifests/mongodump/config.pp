@@ -21,6 +21,7 @@ class holland::mongodump::config (
   String                    $password                = $::holland::mongodump::password,
   String                    $username                = $::holland::mongodump::username,
 ){
+
   $file_ensure = $ensure ? {
     'present' => 'file',
     default   => $ensure,
@@ -33,4 +34,5 @@ class holland::mongodump::config (
     mode    => '0640',
     content => template('holland/providers/mongodump.conf.erb'),
   }
+
 }
