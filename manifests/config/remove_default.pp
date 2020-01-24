@@ -14,6 +14,14 @@
 #   include holland::config::remove_default
 class holland::config::remove_default {
 
+  if $facts['os']['name'] == 'Ubuntu' {
+    file { '/etc/holland/backupsets/default.conf':
+      ensure  => absent,
+      notify  => Exec['holland_remove_default_set'],
+      require => Package['holland'],
+    }
+  }
+
   exec { 'holland_remove_default_set':
     command     => '/bin/sed -i -e \'s/\(^[[:space:]]*backupsets.*\),[[:space:]]*default[[:space:]]*$/\1/g\' -e \'s/\(^[[:space:]]*backupsets.*\)default[, ]*\(.*\)/\1\2/g\' /etc/holland/holland.conf', # lint:ignore:140chars
     onlyif      => '/bin/grep -q \'backupsets.*default\' /etc/holland/holland.conf',
