@@ -1,0 +1,61 @@
+[holland:backup]
+plugin = xtrabackup
+backups-to-keep = <%= @backups_to_keep %>
+auto-purge-failures = <%= @auto_purge_failures %>
+purge-policy = <%= @purge_policy %>
+estimated-size-factor = <%= @estimated_size_factor %>
+<% if @before_backup_command -%>
+before-backup-command = "<%= @before_backup_command %>"
+<% end -%>
+<% if @after_backup_command -%>
+after-backup-command = "<%= @after_backup_command %>"
+<% end -%>
+<% if @failed_backup_command -%>
+failed-backup-command = "<%= @failed_backup_command %>"
+<% end -%>
+
+[xtrabackup]
+stream                 = <%= @stream %>
+apply-logs             = <%= @apply_logs %>
+slave-info             = <%= @slave_info %>
+safe-slave-backup      = <%= @safe_slave_backup %>
+no-lock                = <%= @no_lock %>
+<% if @additional_options -%>
+additional-options     = "<%= @additional_options %>"
+<% end -%>
+<% if @pre_command -%>
+pre-command            = <%= @pre_command %>
+<% end -%>
+
+## Compression Settings
+[compression]
+method              = <%= @compress_method %>
+inline              = <%= @compress_inline %>
+level               = <%= @compress_level %>
+<% if @compress_bin_path -%>
+bin-path            = <%= @compress_bin_path %>
+<% end -%>
+<% if @compress_options -%>
+options             = <%= @compress_options %>
+<% end -%>
+split               = <%= @compress_split %>
+
+[mysql:client]
+<% if @defaults_extra_file -%>
+defaults-extra-file = <%= @defaults_extra_file %>
+<% end -%>
+<% if @mysql_user -%>
+user                = <%= @mysql_user %>
+<% end -%>
+<% if @mysql_password -%>
+password            = <%= @mysql_password %>
+<% end -%>
+<% if @mysql_socket -%>
+socket              = <%= @mysql_socket %>
+<% end -%>
+<% if @mysql_host -%>
+host                = <%= @mysql_host %>
+<% end -%>
+<% if @mysql_port -%>
+port                = <%= @mysql_port %>
+<% end -%>
