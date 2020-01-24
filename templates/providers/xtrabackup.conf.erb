@@ -1,0 +1,119 @@
+## Global settings for the xtrabackup provider - Requires holland-xtrabackup
+##
+## Unless overwritten, all backup-sets implementing this provider will use
+## the following settings.
+
+[xtrabackup]
+
+## Whether to generate a streaming backup.
+## For xtrabackup version 8.0 or greater, 'xbstream' will be used unless
+## this value is set to 'no'
+stream                 = <%= @stream %>
+
+## Whether to run innobackupex `--apply-logs` at the end of the backup.
+## This is only supported when performing a non-streaming, non-compressed
+## backup. In this case, even if `apply-logs = yes` (the default), the
+## prepare stage will be skipped. Even with an uncompressed, non-streaming
+## backup you may want to disable apply-logs if you wish to use incremental
+## backups.
+apply-logs             = <%= @apply_logs %>
+
+## Whether to enable the `-–slave-info` innobackupex option
+slave-info             = <%= @slave_info %>
+
+## Whether to enable the `--safe-slave-backup` innobackupex option.
+safe-slave-backup      = <%= @safe_slave_backup %>
+
+## Whether to enable the `--no-lock` innobackupex option
+no-lock                = <%= @no_lock %>
+
+## any additional options to the 'xtrabackup' command-line utility
+## these should show up exactly as they are on the command line
+## e.g.: --parallel=4 --throttle=150
+<% if @additional_options -%>
+additional-options  = "<%= @additional_options %>"
+<% end -%>
+
+## A command to run prior to running this xtrabackup run. This
+## can be used, for instance, to generate a mysqldump schema
+## dump prior to running xtrabackup. instances of ${backup_directory}
+## will be replaced with the current holland backup directory where
+## the xtrabackup data will be stored.
+<% if @pre_command -%>
+pre-command            = <%= @pre_command %>
+<% end -%>
+
+## Compression Settings
+[compression]
+
+## compress method: gzip, bzip2 or lzop
+## Which compression method to use, which can be either gzip, bzip2, or lzop.
+## Note that lzop is not often installed by default on many Linux
+## distributions and may need to be installed separately.
+method              = <%= @compress_method %>
+
+## Whether to compress data as it is provided from 'xtrabackup', or to
+## compress after a dump has finished. In general, it is often better to use
+## inline compression. The overhead, particularly when using a lower
+## compression level, is often minial since the entire process is often I/O
+## bound (as opposed to being CPU bound).
+inline              = <%= @compress_inline %>
+
+## What compression level to use. Lower numbers mean faster compression,
+## though also generally a worse compression ratio. Generally, levels 1-3
+## are considered fairly fast and still offer good compression for textual
+## data. Levels above 7 can often cause a larger impact on the system due to
+## needing much more CPU resources. Setting the level to 0 effectively
+## disables compresion.
+level               = <%= @compress_level %>
+
+## If the path to the compression program is in a non-standard location,
+## or not in the system-path, you can provide it here.
+##
+## FIXME: Currently not implemented, compression binary is looked up by
+## which.
+##
+#bin-path           = /usr/bin/gzip
+<% if @compress_bin_path -%>
+bin-path            = <%= @compress_bin_path %>
+<% end -%>
+
+## Add commandline options to the configuration compression command.
+##
+#options = "-Q4"
+<% if @compress_options -%>
+options           = <%= @compress_options %>
+<% end -%>
+
+## Defautls to no. If set the backup will be piped through the split command.
+## This may be useful for user’s with large databases, as some backup systems
+## perform better with many smaller files instead of 1 large one. This 
+## defaults to 1GB file size, so this option isn’t helpful if your dumps are 
+## smaller than that.
+split             = <%= @compress_split %>
+
+## MySQL connection settings. Note that Holland will try to read from
+## the provided files defined in the 'defaults-extra-file', although
+## explicitly defining the connection information here will take precedence.
+[mysql:client]
+defaults-extra-file  = <%= @defaults_extra_file %>
+#user                = hollandbackup
+<% if @mysql_user -%>
+user                = <%= @mysql_user %>
+<% end -%>
+#password            = "hollandpw"
+<% if @mysql_password -%>
+password             = <%= @mysql_password %>
+<% end -%>
+#socket              = /tmp/mysqld.sock
+<% if @mysql_socket -%>
+socket               = <%= @mysql_socket %>
+<% end -%>
+#host                = localhost
+<% if @mysql_host -%>
+host                 = <%= @mysql_host %>
+<% end -%>
+#port                = 3306
+<% if @mysql_port -%>
+port                 = <%= @mysql_port %>
+<% end -%>
