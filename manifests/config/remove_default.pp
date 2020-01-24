@@ -13,7 +13,6 @@
 # @example
 #   include holland::config::remove_default
 class holland::config::remove_default {
-
   if $facts['os']['name'] == 'Ubuntu' {
     file { '/etc/holland/backupsets/default.conf':
       ensure  => absent,

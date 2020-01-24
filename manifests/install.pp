@@ -26,6 +26,7 @@ class holland::install (
       refreshonly => true,
       notify      => Class['apt::update'],
     }
+
     package { 'holland':
       ensure  => $ensure,
       require => Exec['install_holland_package_key'],
